@@ -1,0 +1,76 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header"><a href="/writeNote" id="write-button" class="mdl-button mdl-button--fab mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast mdl-shadow--4dp"><i class="material-icons">W</i></a>
+    <header class="mdl-layout__header mdl-layout__header--waterfall site-header">
+        <div class="mdl-layout__header-row site-logo-row"><span class="mdl-layout__title">
+                <div align="center">
+                    <img class="site-logo" src="/public/img/M.JPG">
+                </div><span class="site-description">{{user.username}}</span>
+                <span class="site-description">生活不如过切，是阿胶事发后哈佛i额哈佛欸</span>
+            </span></div>
+        <div class="mdl-layout__header-row site-navigation-row mdl-layout--large-screen-only">
+            <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font"><a class="mdl-navigation__link" href="/index">Home</a>
+                <div class="dropup">
+                    <a class="mdl-navigation__link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Portfolio
+                    </a>
+                    <div class="dropdown-menu">
+                        <li> <a class="dropdown-item" href="/individualPortfolio">Individual Po</a></li>
+                        <li> <a class="dropdown-item" href="/allPortfolio">All Po</a></li>
+                    </div>
+                </div><a class="mdl-navigation__link" href="/about">About</a><a class="mdl-navigation__link" href="/writeNote">Write</a>
+                <div class="dropup">
+                    <a class="mdl-navigation__link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Setting
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li> <a class="dropdown-item" href="#">Action</a></li>
+                        <li> <a class="dropdown-item" href="#">anotherAction</a></li>
+                        <li> <a class="dropdown-item" href="#">somethingElseHere</a></li>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="mdl-layout__header-row site-navigation-row mdl-layout--large-screen-only">
+            <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font position-fixed">
+                <div class="mdl-navigation__link">
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" style="width: 600px;" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Go</button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+        <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font"><a class="mdl-navigation__link" href="/index">Home</a>
+            <div class="dropup">
+                <a class="mdl-navigation__link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Portfolio
+                </a>
+                <div class="dropdown-menu">
+                    <li> <a class="dropdown-item" href="/individualPortfolio">Individual Po</a></li>
+                    <li> <a class="dropdown-item" href="/allPortfolio">All Po</a></li>
+                </div>
+            </div><a class="mdl-navigation__link" href="/about">About</a><a class="mdl-navigation__link" href="/writeNote">Write</a>
+            <div class="dropup">
+                <a class="mdl-navigation__link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Setting
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li> <a class="dropdown-item" href="#">Action</a></li>
+                    <li> <a class="dropdown-item" href="#">anotherAction</a></li>
+                    <li> <a class="dropdown-item" href="#">somethingElseHere</a></li>
+                </div>
+            </div>
+            <nav>
+                <div class="container-fluid">
+                    <div>
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-2" type="submit">Go</button>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </nav>
+    </div>
+    <main class="mdl-layout__content">

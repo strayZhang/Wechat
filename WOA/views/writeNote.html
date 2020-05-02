@@ -1,0 +1,140 @@
+{{extend './_layouts/home.html'}}
+{{block 'body'}}
+<div class="site-content">
+    <div class="mdl-grid site-max-width">
+        <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp page-content">
+            <div class="mdl-card__title">
+                <h1 class="mdl-card__title-text">Write</h1>
+            </div>
+            <div class="mdl-card__media"><img class="article-image" src="/public/img/contact.jpg" border="0" alt="Contact">
+            </div>
+            <div class="mdl-grid site-copy">
+                <div class="mdl-cell mdl-cell--12-col">
+                    <div class="mdl-card__supporting-text">
+                        <p>Write your Note form below:</p>
+                        <form id="writeF" class="form-contact">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input type="hidden" name="idS" value="{{user.idS}}">
+                                <input style="font-weight: 900;" class="mdl-textfield__input" type="text" id="title" name="title" required>
+                                <label class="mdl-textfield__label" for="Name">Title...</label>
+                            </div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <div class="upload-picture">
+                                    <label class="up-lab" for="add-pic-btn">上传图片(以最后一次上传的列表为主)</label>
+                                    <input type="file" accept="image/*" multiple class="up-File" id="add-pic-btn">
+                                </div>
+                                <div class="group-coms-pic" id="groupTu">
+                                </div>
+                            </div>
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <textarea style="font-weight: 700;line-height:1.5em; " class="mdl-textfield__input" type="text" rows="36" id="note" name="note" required></textarea>
+                                <label class="mdl-textfield__label" for="note">Enter note</label>
+                            </div>
+                            <p>
+                                <button style="background: rgb(0,255,255);" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button" id="preview" name="preview">
+                                    Preview
+                                </button>
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" id="smt">
+                                    Submit
+                                </button>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="dd"></div>
+<script>
+//input file已增加multiple属性，按住ctrl可选择多图
+var imgS = new Array()
+$("#add-pic-btn").change(function() {
+    var data = new FormData()
+    var files = document.getElementById("add-pic-btn").files;
+    for (var i = 0; i < files.length; i++) {
+        data.append("img" + i, files[i])
+    }
+    $.ajax({
+        url: "/fileUpload",
+        type: "post",
+        data: data,
+        processData: false, // 不处理数据
+        contentType: false, // 不设置请求头
+        cache: false,
+        success: function(data) {
+            var showImg = document.getElementById("groupTu")
+            var html = ''
+            imgS = []
+            for (var i = 0; i < data.imgB.length; i++) {
+                imgS[i] = data.imgA[i]
+                html = html + '<li>' + data.imgB[i] + '(引用名：' + data.imgA[i] + ')</li>'
+            }
+            console.log(html)
+            showImg.innerHTML = html
+        },
+        error: function(data) {
+            var showImg = document.getElementById("groupTu")
+            showImg.innerHTML = html
+        }
+    });
+});
+
+
+$("#preview").click(function() {
+    var formData = $("#writeF").serialize()
+    $.ajax({
+        url: '/preview',
+        type: 'post',
+        data: formData,
+        dataType: 'json',
+        success: function(data) {
+            var note = data.note
+            var title = data.title
+            var scrp = '<link href="../public/css/mermaid.css" rel="stylesheet">' + '<script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.0/dist/mermaid.min.js"></' + 'script><script>mermaid.initialize({startOnLoad:true});' + '</' + 'script>'
+            console.log(note)
+            var content = "<iframe srcdoc='" + scrp + '<h2>' + title + '</h2><hr>' + note + "'" + 'width="100%" height="99%" frameborder="0" scrolling="yes"></iframe>';
+            console.log(content)
+            $('#dd').dialog({
+                title: "preview",
+                content: content,
+                width: window.innerWidth - (window.innerWidth) * (10 / 100),
+                height: window.innerHeight - (window.innerHeight) * (5 / 100),
+                closed: false,
+                cache: false,
+                resizable: true, //定义对话框是否可调整尺寸。
+                // maximized: true, //默认最大化
+                modal: false,
+            });
+        }
+    })
+    console.log(imgS)
+})
+
+$("#writeF").on('submit', function(e) {
+    e.preventDefault()
+    var formData = $(this).serialize()
+    console.log(formData)
+    $.ajax({
+        url: '/noteUpload',
+        type: 'post',
+        data: formData,
+        dataType: 'json',
+        success: function(data) {
+            var err_code = data.erro_code
+            console.log(err_code)
+            var err_message = data.erro_message
+            if (err_code === 0) {
+                alert('提交成功')
+                window.location.href='/index'
+            } else{
+                alert('服务器忙，稍后重试')
+            }
+        }
+    });
+    $("#smt").attr('disabled','disabled')
+})
+$("#write-button").attr("style","display:none;")
+
+</script>
+{{/block}}

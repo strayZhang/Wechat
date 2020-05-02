@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio Page</title>
+    <meta name="description" content="Demo of Material design portfolio template" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;amp;lang=en" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../public/css/main.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../public/esayUI/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../public/esayUI/themes/icon.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../public/js/Popper.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/js/bootstrap.min.js">
+    <script type="text/javascript" src="../public/esayUI/jquery.easyui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.0/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+
+<body id="top">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header"><a href="/writeNote" id="write-button" class="mdl-button mdl-button--fab mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast mdl-shadow--4dp"><i class="material-icons">Write</i></a>
+        <header class="mdl-layout__header mdl-layout__header--waterfall site-header">
+            <div class="mdl-layout__header-row site-logo-row"><span class="mdl-layout__title">
+                    <div align="center">
+                        <img src="/public/img/M.JPG" class="site-logo">
+                    </div><span class="site-description">{{user.username}}</span>
+                    <span class="site-description">生活不如过切，是阿胶事发后哈佛i额哈佛欸</span>
+                </span></div>
+            <div class="mdl-layout__header-row site-navigation-row mdl-layout--large-screen-only">
+                <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font"><a class="mdl-navigation__link" href="/index">Home</a>
+                    <div class="dropup">
+                        <a class="mdl-navigation__link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Portfolio
+                        </a>
+                        <div class="dropdown-menu">
+                            <li> <a class="dropdown-item" href="/individualPortfolio">Individual Po</a></li>
+                            <li> <a class="dropdown-item" href="/allPortfolio">All Po</a></li>
+                        </div>
+                    </div><a class="mdl-navigation__link" href="/about">About</a><a class="mdl-navigation__link" href="/writeNote">Write</a>
+                    <div class="dropup">
+                        <a class="mdl-navigation__link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Setting
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li> <a class="dropdown-item" href="#">Action</a></li>
+                            <li> <a class="dropdown-item" href="#">anotherAction</a></li>
+                            <li> <a class="dropdown-item" href="#">somethingElseHere</a></li>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="site-navigation-row mdl-layout--large-screen-only">
+                <nav class="navbar navbar-default" role="navigation">
+                    <div class="container-fluid">
+                        <div>
+                            <form class="navbar-form navbar-right" role="search">
+                                <div class="form-group">
+                                    <input style="width: 530px;" type="text" class="form-control" placeholder="Search">
+                                </div>
+                                <button type="submit" class="btn btn-default">GO</button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+            <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font"><a class="mdl-navigation__link" href="/index">Home</a>
+                <div class="dropup">
+                    <a class="mdl-navigation__link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Portfolio
+                    </a>
+                    <div class="dropdown-menu">
+                        <li> <a class="dropdown-item" href="/individualPortfolio">Individual Po</a></li>
+                        <li> <a class="dropdown-item" href="/allPortfolio">All Po</a></li>
+                    </div>
+                </div><a class="mdl-navigation__link" href="/about">About</a><a class="mdl-navigation__link" href="/writeNote">Write</a>
+                <div class="dropup">
+                    <a class="mdl-navigation__link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Setting
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li> <a class="dropdown-item" href="#">Action</a></li>
+                        <li> <a class="dropdown-item" href="#">anotherAction</a></li>
+                        <li> <a class="dropdown-item" href="#">somethingElseHere</a></li>
+                    </div>
+                </div>
+                <nav>
+                    <div class="container-fluid">
+                        <div>
+                            <form class="navbar-form" role="search">
+                                <div class="form-group">
+                                    <input style="width: 210px;" type="text" class="form-control" placeholder="Search">
+                                </div>
+                                <button type="submit" style="alignment-adjust: auto;" class="btn btn-default">GO</button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="site-content">
+                <div class="mdl-grid site-max-width">
+                    <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--0dp page-content">
+                        <p>
+                            <h3 style="color:red;">&nbsp;&nbsp;&nbsp;&nbsp;{{title}}</h3>
+                        </p>
+                        <hr>
+                        {{body}}
+                    </div>
+                </div>
+                <div class="site-content">
+                    <div class="mdl-grid site-max-width">
+                        <div class="mdl-cell mdl-cell--10-col mdl-card mdl-shadow--2dp page-content">
+                            <button>发表评论</button>
+                            <div class="accordion" id="accordionExample">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                        <h2 class="mb-0">
+                                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                点击查看评论
+                                            </button>
+                                        </h2>
+                                    </div>
+                                    <div id="collapseOne" class="collapse hidde" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div>
+                                                <ul class="list-group">
+                                                  <li class="list-group-item">Cras justo odio</li>
+                                                  <li class="list-group-item">Dapibus ac facilisis in</li>
+                                                  <li class="list-group-item">Morbi leo risus</li>
+                                                  <li class="list-group-item">Porta ac consectetur ac</li>
+                                                  <li class="list-group-item">Vestibulum at eros</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="mdl-mini-footer">
+                <div class="footer-container">
+                    <div class="mdl-logo">&copy; Unitiled. More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></div>
+                    <ul class="mdl-mini-footer__link-list">
+                        <li><a href="#">Privacy & Terms</a></li>
+                    </ul>
+                </div>
+            </footer>
+        </main>
+        <script src="/public/js/material.min.js"></script>
+    </div>
+</body>
+
+</html>
