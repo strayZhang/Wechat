@@ -1,9 +1,15 @@
 const reply=require('./reply')
+const Wechat=require('./wechat/wechat')
 
 var express = require('express')
 
 
-const app = express()
+const wechatApi = new Wechat()
+const app = express();
+
+(async()=>{
+    await wechatApi.fetchAccessToken();
+})();
 
 app.use(reply())
 

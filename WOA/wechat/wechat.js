@@ -59,9 +59,3 @@ class Wechat {
             })
     }
 }
-
-(async () => {
-    const w = new Wechat()
-    let accessToken = await w.fetchAccessToken()
-    console.log(accessToken)
-})()

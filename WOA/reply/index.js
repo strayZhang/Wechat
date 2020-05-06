@@ -63,8 +63,8 @@ module.exports = () => {
                     content.push({
                         title: '热点信息',
                         description: '热点介绍',
-                        picUrl: `https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3369544665,3799492039&fm=26&gp=0.jpg`,
-                        url: `http://www.jsky.org.cn`
+                        picUrl: `http://www.jsky.org.cn/today/hot`,
+                        url: `http://www.jsky.org.cn/today/hot/head.png`
                     })
                 } else if (message.Content === '今日笔记') {
                     options.MsgType = 'news'
@@ -72,8 +72,8 @@ module.exports = () => {
                     content.push({
                         title: '热点信息',
                         description: '热点介绍',
-                        picUrl: `https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3369544665,3799492039&fm=26&gp=0.jpg`,
-                        url: `http://www.jsky.org.cn`
+                        picUrl: `http://www.jsky.org.cn/today/note/head.png`,
+                        url: `http://www.jsky.org.cn/today/note`
                     })
                 }
             }
